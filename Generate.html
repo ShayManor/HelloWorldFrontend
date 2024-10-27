@@ -376,7 +376,7 @@
 
 
         // Perform a fetch request to the API that returns the solution for the equation
-        fetch('https://helloworldhackathonyoutube.ue.r.appspot.com/solve', { // Replace with your actual API endpoint
+        fetch('http://18.216.105.72:5000/solve', { // Replace with your actual API endpoint
             method: 'POST', // Use POST method to send data
             headers: {
                 'Content-Type': 'application/json', // Specify that we are sending JSON data
@@ -387,10 +387,11 @@
             .then(response => response.json()) // Parse the JSON response
             .then(data => {
                 // Process the data returned from the API
-                console.log('ABCDEFG' + data); // Log the entire response for debugging purposes
+                // console.log('ABCDEFG' + data); // Log the entire response for debugging purposes
 
                 // Check if the response contains a solution
-                videoSource.src = data.url; // Set the video source to the returned URL
+                videoSource.src = 'https://manors-videos-bucket.s3.us-east-2.amazonaws.com/88e536e4-943c-11ef-b2ca-d7b653eb6e7fvideo.mp4';
+                // videoSource.src = data.url; // Set the video source to the returned URL
                 videoPlayer.load(); // Load the new video source into the player
                 videoContainer.style.display = 'block'; // Show the video container
                 spinner.style.display = 'none'; // Hide the spinner as the loading is complete
