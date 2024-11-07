@@ -227,6 +227,9 @@
                 <li class="nav-item">
                     <a class="nav-link" href="About.html">About Us</a> <!-- About link -->
                 </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="WProblems.html">Word Problems</a> <!-- About link -->
+                </li>
             </ul>
         </div>
     </div>
@@ -360,7 +363,7 @@
     }
 
     // Event listener for the submit button
-    document.getElementById('submitBtn').addEventListener('click', function() {
+    document.getElementById('submitBtn').addEventListener('click', function () {
         // Get references to UI elements
         const spinner = document.querySelector('.spinner'); // Spinner for loading indication
         const videoContainer = document.querySelector('.video-container'); // Container for the video
@@ -371,38 +374,16 @@
         spinner.style.display = 'block'; // Display spinner
         videoContainer.style.display = 'none'; // Hide video container initially
 
-        // Get the equation entered by the user in LaTeX format
-        const equation = mathField.latex(); // Extracts LaTeX string from MathQuill field
+        // Optional: Extract equation entered by the user in LaTeX format
+        const equation = mathField.latex(); // Extract LaTeX string from MathQuill field (if needed)
 
-
-        // Perform a fetch request to the API that returns the solution for the equation
-        fetch('http://18.216.105.72:5000/solve', { // Replace with your actual API endpoint
-            method: 'POST', // Use POST method to send data
-            headers: {
-                'Content-Type': 'application/json', // Specify that we are sending JSON data
-            },
-            // Create the request body as a JSON object with the LaTeX equation
-            body: JSON.stringify({ problem: equation }) // Convert the object to a JSON string
-        })
-            .then(response => response.json()) // Parse the JSON response
-            .then(data => {
-                // Process the data returned from the API
-                // console.log('ABCDEFG' + data); // Log the entire response for debugging purposes
-
-                // Check if the response contains a solution
-                videoSource.src = 'https://manors-videos-bucket.s3.us-east-2.amazonaws.com/88e536e4-943c-11ef-b2ca-d7b653eb6e7fvideo.mp4';
-                // videoSource.src = data.url; // Set the video source to the returned URL
-                videoPlayer.load(); // Load the new video source into the player
-                videoContainer.style.display = 'block'; // Show the video container
-                spinner.style.display = 'none'; // Hide the spinner as the loading is complete
-
-            })
-            .catch((error) => {
-                // Catch any errors that occur during the fetch request
-                console.error('Error:', error); // Log the error for debugging
-                // Notify the user of an error
-                alert('An error occurred while fetching the solution.'); // Show alert with error message
-            });
+        // Set the video source and show the video with a 6-second delay
+        setTimeout(() => {
+            videoSource.src = "https://manors-videos-bucket.s3.us-east-2.amazonaws.com/c9dcd504-9404-11ef-9c17-c6ac684d68cbvideo.mp4"; // Set the video source
+            videoPlayer.load(); // Load the new video source into the player
+            videoContainer.style.display = 'block'; // Show the video container
+            spinner.style.display = 'none'; // Hide the spinner
+        }, 1000); // 6000ms = 6 seconds
     });
 </script>
 </body>

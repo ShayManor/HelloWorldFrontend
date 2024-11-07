@@ -13,18 +13,25 @@
 
     <style>
         .navbar-brand {
-            background: linear-gradient(to left, #95d1cf, rgb(84, 84, 137)); /* Adjust colors as needed */
+            background: linear-gradient(to right, #95d1cf, rgb(84, 84, 137));
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent; /* Make text color transparent */
             font-size: 3vw; /* Adjust the size as needed */
             font-weight: bold; /* Optional: make it bold */
             margin-right: 5px;
-            height: 5vw;
         }
 
         .navbar {
             font-size: 1.5vw; /* Adjust the size as needed */
             font-weight: bold; /* Optional: make it bold */
+            margin: 0px;
+        }
+        .navbar-nav .nav-item {
+            margin-right: 0px; /* Adjust the space between items */
+        }
+
+        .navbar-nav .nav-item:last-child {
+            margin-right: 0; /* Remove margin for the last item */
         }
 
         body {
@@ -68,6 +75,9 @@
                 </li>
                 <li class="nav-item">
                     <a class="nav-link active" href="#">About Us</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="WProblems.html">Word Problems</a> <!-- About link -->
                 </li>
             </ul>
         </div>
