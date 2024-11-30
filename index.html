@@ -216,6 +216,67 @@
 
     </style>
 </head>
+<!-- ... your existing body content ... -->
+
+<!-- Place all scripts here -->
+
+<!-- Google Identity Services (if using without Firebase) -->
+<script src="https://accounts.google.com/gsi/client" async defer></script>
+
+<!-- Firebase SDK scripts (if using Firebase) -->
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
+
+<!-- Firebase initialization -->
+<script>
+    // Your web app's Firebase configuration
+    var firebaseConfig = {
+        apiKey: "AIzaSyB4lnwZwKB6RbrCf3CGJEpbN-4jKX8zyX0\n",
+        authDomain: "mathgen-f32a0.firebaseapp.com",
+        projectId: "mathgen-f32a0",
+    };
+    firebase.initializeApp(firebaseConfig);
+    var auth = firebase.auth();
+    var db = firebase.firestore();
+</script>
+
+<!-- Your custom scripts -->
+<script>
+    let currentUser = null;
+
+    // Listen for authentication state changes
+    auth.onAuthStateChanged((user) => {
+        if (user) {
+            currentUser = user;
+            console.log('User logged in:', user.email);
+            // Update UI if necessary
+        } else {
+            currentUser = null;
+            console.log('User logged out');
+            // Update UI if necessary
+        }
+    });
+
+    document.getElementById('loginBtn').addEventListener('click', () => {
+        var provider = new firebase.auth.GoogleAuthProvider();
+        auth.signInWithPopup(provider)
+            .then((result) => {
+                console.log('Login successful');
+            })
+            .catch((error) => {
+                console.error('Error during login:', error);
+            });
+    });
+
+    // Your existing event listeners for submitBtn and other elements
+    // ...
+
+</script>
+
+<!-- Other scripts like MathQuill -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/mathquill/0.10.1/mathquill.min.js"></script>
+<!-- ... -->
 
 <body>
 <!-- Navigation bar at the top of the page -->
@@ -239,7 +300,19 @@
                 <li class="nav-item">
                     <a class="nav-link" href="WProblems.html">Word Problems</a> <!-- About link -->
                 </li>
+                <p id="userEmailDisplay"></p>
             </ul>
+        </div>
+        <div id="g_id_onload"
+             data-client_id="854967522738-kk61i4n7c2och0cmgacqobmu4eakhfom.apps.googleusercontent.com"
+             data-callback="handleCredentialResponse">
+        </div>
+        <div class="g_id_signin"
+             data-type="standard"
+             data-shape="rectangular"
+             data-theme="outline"
+             data-text="sign_in_with"
+             data-size="large">
         </div>
     </div>
 </nav>
