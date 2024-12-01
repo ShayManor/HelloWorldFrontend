@@ -2,14 +2,18 @@
 <html lang="en">
 <head>
     <!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-HP5BQC34Z7"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-HP5BQC34Z7"></script>
+    <script>
+        window.dataLayer = window.dataLayer || [];
 
-  gtag('config', 'G-HP5BQC34Z7');
-</script>
+        function gtag() {
+            dataLayer.push(arguments);
+        }
+
+        gtag('js', new Date());
+
+        gtag('config', 'G-HP5BQC34Z7');
+    </script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Please enter your equation:</title>
@@ -22,272 +26,19 @@
 
     <!-- Link to Google Fonts for custom font styling -->
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@300;400;600;700&display=swap" rel="stylesheet">
-
-    <style>
-    .navbar-brand {
-        background: linear-gradient(to right, #f86c7a, #7cdbfa);
-        -webkit-background-clip: text;
-        -webkit-text-fill-color: transparent; /* Make text color transparent */
-        font-size: 3vw; /* Adjust the size as needed */
-        font-weight: bold; /* Optional: make it bold */
-        margin-right: 5px;
-    }
-
-    .navbar {
-        font-size: 1.5vw; /* Adjust the size as needed */
-        font-weight: bold; /* Optional: make it bold */
-        margin: 0px;
-    }
-    .navbar-nav .nav-item {
-        margin-right: 0px; /* Adjust the space between items */
-    }
-
-    .navbar-nav .nav-item:last-child {
-        margin-right: 0; /* Remove margin for the last item */
-    }
-
-        /* Styling for the body, including a gradient background and centering content */
-        body {
-            background: linear-gradient(to right, #f86c7a, #7cdbfa);
-            min-height: 120vh; /* Ensures body height is sufficient for content */
-            display: flex;
-            justify-content: center; /* Centers content horizontally */
-            align-items: center; /* Centers content vertically */
-            font-family: 'Nunito', sans-serif;
-            color: #e0e0e0; /* Text color */
-            margin: 0; /* Remove default margin */
-            height: 100vh; /* Full viewport height */
-            overflow-y: auto; /* Enables vertical scrolling if necessary */
-        }
-
-        /* Container for the main content with background, padding, and shadow */
-        .container {
-            max-width: 70vw; /* Maximum width for the container */
-            background: rgba(25, 25, 25, 0.9); /* Semi-transparent background */
-            border-radius: 15px; /* Rounded corners */
-            padding: 30px; /* Padding around content */
-            min-height: 80vh; /* Minimum height for the container */
-            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8); /* Shadow for depth effect */
-            text-align: center; /* Center-aligns text within the container */
-        }
-
-        /* Styling for the heading */
-        h3 {
-            font-weight: 620; /* Semi-bold text */
-            color: #ffffff; /* White text color */
-            margin-bottom: 3.2vw; /* Space below the heading */
-            text-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Shadow for text effect */
-            box-shadow: 0 10px 30px rgb(0, 0, 0); /* Shadow for the heading */
-            background: linear-gradient(to right, #f86c7a, #7cdbfa); /* Gradient background */
-            padding: 2.5vh; /* Padding around the text */
-            border-radius: 10px; /* Rounded corners */
-            max-width: 60vw; /* Maximum width of the heading */
-            margin-top: 15vh; /* Space above the heading */
-            margin-left: auto; /* Centers the heading horizontally */
-            margin-right: auto; /* Centers the heading horizontally */
-            font-size: 3.7vw; /* Increase the font size (adjust as needed) */
-        }
-
-
-        /* Container for the MathQuill input field */
-        .math-container {
-            border: 1px solid #3b8dbf; /* Border color */
-            border-radius: 10px; /* Rounded corners */
-            padding: 1.5vw; /* Padding inside the container */
-            min-height: 6vw; /* Minimum height for the container */
-            min-width: 40vw; /* Minimum width for the container */
-            margin-bottom: 1.25vw; /* Space below the math container */
-            cursor: text; /* Cursor indicates text input area */
-            background-color: rgba(150, 150, 150, 0.9); /* Background color */
-            transition: background-color 0.3s; /* Smooth transition for background color */
-            font-size: 1.5vw;
-        }
-
-        /* Change background color when the MathQuill container is focused */
-        .math-container:focus {
-            background-color: #2a3b4d; /* Darker background on focus */
-        }
-
-        /* Styling for symbol buttons container */
-        .symbol-buttons {
-            display: flex; /* Flexbox for layout */
-            flex-wrap: wrap; /* Allows buttons to wrap to the next line */
-            gap: 0.65vw; /* Space between buttons */
-            justify-content: center; /* Center-aligns buttons */
-            margin-bottom: 0.9vw; /* Space below symbol buttons */
-        }
-
-        .symbol-buttons button {
-            font-size: 1.35vw; /* Increase the font size (adjust as needed) */
-            padding: 1vw 1.7vw; /* Adjust padding for better appearance */
-        }
-
-
-        /* Container for each category of symbols */
-        .category {
-            position: relative; /* Allows positioning of the symbols dropdown */
-            display: inline-block; /* Keeps each category inline */
-        }
-
-        /* Hidden symbols dropdown that appears on hover */
-        .symbols {
-            display: none; /* Initially hidden */
-            position: absolute; /* Position relative to category */
-            background: rgba(25, 25, 25, 0.9); /* Background color */
-            border-radius: 8px; /* Rounded corners */
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.7); /* Shadow effect */
-            padding: 1vh; /* Padding inside the dropdown */
-            z-index: 1; /* Ensures dropdown appears above other elements */
-        }
-
-        /* Show symbols dropdown on hover */
-        .category:hover .symbols {
-            display: block; /* Display the symbols on hover */
-        }
-
-        /* Styling for individual symbol buttons */
-        .symbols button {
-            font-size: 1.35vw; /* Font size for buttons */
-            border-radius: 25px; /* Rounded corners */
-            border: none; /* No border */
-            padding: 1.25vh 1.25vw; /* Padding around button text */
-            background-color: #3b8dbf; /* Button background color */
-            color: white; /* Button text color */
-            margin: 0.25vw 0; /* Space above and below buttons */
-            transition: all 0.3s ease; /* Smooth transition for hover effects */
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5); /* Shadow effect */
-        }
-
-        /* Change background and scale button on hover */
-        .symbols button:hover {
-            background-color: #27a3bb; /* Change background color on hover */
-            transform: scale(1.05); /* Slightly enlarge button */
-            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5); /* Shadow effect on hover */
-        }
-
-        /* Styling for the submit button */
-        #submitBtn {
-            position: relative; /* Allows for positioning effects */
-            overflow: hidden; /* Hides overflow content */
-            transition: background-color 0.3s, color 0.3s; /* Smooth transition for hover effects */
-            border-radius: 25px; /* Rounded corners */
-            padding: 1.55vh 1.75vw; /* Padding around button text */
-            font-size: 2.75vw; /* Font size */
-            background: linear-gradient(to right, #f86c7a, #7cdbfa); /* Gradient background */
-            color: white; /* Text color */
-            border: none; /* No border */
-            margin-top: 8px; /* Space above the button */
-            cursor: pointer; /* Change cursor to pointer on hover */
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Shadow for depth */
-        }
-
-        /* Change background and scale submit button on hover */
-        #submitBtn:hover {
-            background-color: #27a3bb; /* Change background color on hover */
-            transform: scale(1.05); /* Slightly enlarge button */
-        }
-
-        /* Spinner styling for loading indication */
-        .spinner {
-            display: none; /* Hidden by default */
-        }
-
-        /* Container for video player, hidden by default */
-        .video-container {
-            display: none; /* Initially hidden */
-            margin-top: 1.25vw; /* Space above the video container */
-        }
-
-        /* Video player styling */
-        #videoPlayer {
-            border-radius: 0.75vw; /* Rounded corners for the video player */
-            overflow: hidden; /* Hides overflow content */
-            box-shadow: 0 0.35vw 1.25vw rgba(0, 0, 0, 0.5); /* Shadow effect */
-        }
-
-        /* Background image for the container */
-        .container {
-            background-image: url('images/mathimages2.jpg'); /* Background image */
-            background-size: cover; /* Ensure the image covers the entire container */
-            background-position: center; /* Center the image */
-            padding: 1.25vw; /* Padding around the content */
-            color: white; /* Adjust text color for better readability */
-        }
-
-    </style>
+    <link rel="stylesheet" href="index.css">
 </head>
-<!-- ... your existing body content ... -->
-
-<!-- Place all scripts here -->
-
-<!-- Google Identity Services (if using without Firebase) -->
-<script src="https://accounts.google.com/gsi/client" async defer></script>
-
-<!-- Firebase SDK scripts (if using Firebase) -->
-<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
-<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
-
-<!-- Firebase initialization -->
-<script>
-    // Your web app's Firebase configuration
-    var firebaseConfig = {
-        apiKey: "AIzaSyB4lnwZwKB6RbrCf3CGJEpbN-4jKX8zyX0\n",
-        authDomain: "mathgen-f32a0.firebaseapp.com",
-        projectId: "mathgen-f32a0",
-    };
-    firebase.initializeApp(firebaseConfig);
-    var auth = firebase.auth();
-    var db = firebase.firestore();
-</script>
-
-<!-- Your custom scripts -->
-<script>
-    let currentUser = null;
-
-    // Listen for authentication state changes
-    auth.onAuthStateChanged((user) => {
-        if (user) {
-            currentUser = user;
-            console.log('User logged in:', user.email);
-            // Update UI if necessary
-        } else {
-            currentUser = null;
-            console.log('User logged out');
-            // Update UI if necessary
-        }
-    });
-
-    document.getElementById('loginBtn').addEventListener('click', () => {
-        var provider = new firebase.auth.GoogleAuthProvider();
-        auth.signInWithPopup(provider)
-            .then((result) => {
-                console.log('Login successful');
-            })
-            .catch((error) => {
-                console.error('Error during login:', error);
-            });
-    });
-
-    // Your existing event listeners for submitBtn and other elements
-    // ...
-
-</script>
-
-<!-- Other scripts like MathQuill -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/mathquill/0.10.1/mathquill.min.js"></script>
-<!-- ... -->
-
 <body>
 <!-- Navigation bar at the top of the page -->
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
     <div class="container-fluid">
         <a class="navbar-brand" href="#">MathGen</a> <!-- Brand name -->
-        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span> <!-- Toggle button for mobile view -->
         </button>
         <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav">
+            <ul class="navbar-nav me-auto"> <!-- Added 'me-auto' to align items properly -->
                 <li class="nav-item">
                     <a class="nav-link" href="Home.html">Home</a> <!-- Home link -->
                 </li>
@@ -298,21 +49,31 @@
                     <a class="nav-link" href="About.html">About Us</a> <!-- About link -->
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="WProblems.html">Word Problems</a> <!-- About link -->
+                    <a class="nav-link" href="WProblems.html">Word Problems</a> <!-- Word Problems link -->
                 </li>
-                <p id="userEmailDisplay"></p>
             </ul>
-        </div>
-        <div id="g_id_onload"
-             data-client_id="854967522738-kk61i4n7c2och0cmgacqobmu4eakhfom.apps.googleusercontent.com"
-             data-callback="handleCredentialResponse">
-        </div>
-        <div class="g_id_signin"
-             data-type="standard"
-             data-shape="rectangular"
-             data-theme="outline"
-             data-text="sign_in_with"
-             data-size="large">
+            <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+                <!-- Dropdown Menu for Logged-In Users -->
+                <div class="dropdown d-flex align-items-center" id="userDropdown" style="display: none;">
+                    <button class="dropbtn btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
+                        User Menu
+                    </button>
+                    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton">
+                        <li class="dropdown-item-text">
+                            <span id="remainingRequests" class="text-dark">Remaining Attempts: 5</span>
+                        </li>
+                        <li class="dropdown-item-text">
+                            <span id="userEmailDisplay" class="text-dark">Logged in as user@example.com</span>
+                        </li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><button id="logoutBtn" class="dropdown-item">Logout</button></li>
+                    </ul>
+                </div>
+                <!-- Login Button for Logged-Out Users -->
+                <div id="loggedOutMenu" class="d-flex align-items-center">
+                    <button id="loginBtn" class="btn btn-outline-light">Login with Google</button>
+                </div>
+            </ul>
         </div>
     </div>
 </nav>
@@ -320,6 +81,8 @@
 <!-- Main content container -->
 <div class="container">
     <h3>Please enter your equation:</h3> <!-- Heading for user input -->
+
+    <!-- Display remaining requests -->
 
     <!-- MathQuill Element for entering mathematical equations -->
     <div id="mathContainer" class="math-container" tabindex="0"></div>
@@ -406,13 +169,8 @@
     </div>
 
 </div>
-<script>
-    function insertLimit() {
-        // Insert a limit expression with placeholders for lower and upper limits
-        const limitExpression = `\\lim_{a \\to b}`; // Placeholder for limits
-        mathField.write(limitExpression);
-    }
-</script>
+
+<!-- Place scripts at the end of the body -->
 
 <!-- Scripts for Bootstrap and dependencies -->
 <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
@@ -422,49 +180,137 @@
 <!-- Script for MathQuill -->
 <script src="https://cdnjs.cloudflare.com/ajax/libs/mathquill/0.10.1/mathquill.min.js"></script>
 
+<!-- Firebase SDK scripts -->
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/9.23.0/firebase-firestore-compat.js"></script>
+
+<!-- Initialize Firebase -->
 <script>
-    // Initialize MathQuill with specific options
+    // Your web app's Firebase configuration
+    var firebaseConfig = {
+        apiKey: "AIzaSyB4lnwZwKB6RbrCf3CGJEpbN-4jKX8zyX0",
+        authDomain: "mathgen-f32a0.firebaseapp.com",
+        projectId: "mathgen-f32a0",
+        storageBucket: "mathgen-f32a0.appspot.com",
+        // appId: "YOUR_APP_ID" // Replace with your actual app ID
+    };
+    // Initialize Firebase
+    firebase.initializeApp(firebaseConfig);
+    var auth = firebase.auth();
+    var db = firebase.firestore();
+</script>
+
+<!-- Your custom scripts -->
+<script>
+    let currentUser = null;
+
+    // Listen for authentication state changes
+    auth.onAuthStateChanged(async (user) => {
+        if (user) {
+            currentUser = user;
+            console.log('User logged in:', user.email);
+            // Update UI to reflect login status
+            document.getElementById('loginBtn').style.display = 'none';
+            document.getElementById('logoutBtn').style.display = 'block';
+            document.getElementById('userEmailDisplay').textContent = `Logged in as ${user.email}`;
+
+            // Get usage count from Firestore
+            const userDocRef = db.collection('users').doc(currentUser.uid);
+            const userDoc = await userDocRef.get();
+
+            let usageCount = 0;
+            if (userDoc.exists) {
+                usageCount = userDoc.data().usageCount || 0;
+            }
+
+            const remainingRequests = 5 - usageCount;
+            // Update the UI to show remaining requests
+            document.getElementById('remainingRequests').textContent = `Remaining Attempts: ${remainingRequests}`;
+            if (usageCount >= 5) {
+                alert('You have reached your usage limit of 5 attempts.');
+                document.getElementById('submitBtn').disabled = true; // Disable the button
+                spinner.style.display = 'none';
+                return;
+            }
+
+        } else {
+            currentUser = null;
+            console.log('User logged out');
+            // Update UI to reflect logout status
+            document.getElementById('loginBtn').style.display = 'block';
+            document.getElementById('logoutBtn').style.display = 'none';
+            document.getElementById('userEmailDisplay').textContent = '';
+            document.getElementById('remainingRequests').textContent = 'abc';
+        }
+    });
+
+    // Login function
+    document.getElementById('loginBtn').addEventListener('click', () => {
+        var provider = new firebase.auth.GoogleAuthProvider();
+        auth.signInWithPopup(provider)
+            .then((result) => {
+                console.log('Login successful');
+            })
+            .catch((error) => {
+                console.error('Error during login:', error);
+                alert('Login failed. Please try again.');
+            });
+    });
+
+    // Logout function
+    document.getElementById('logoutBtn').addEventListener('click', () => {
+        auth.signOut()
+            .then(() => {
+                console.log('User logged out');
+            })
+            .catch((error) => {
+                console.error('Error during logout:', error);
+                alert('Logout failed. Please try again.');
+            });
+    });
+
+    // Initialize MathQuill
     var MQ = MathQuill.getInterface(2);
     var mathField = MQ.MathField(document.getElementById('mathContainer'), {
-        spaceBehavesLikeTab: true, // Space key acts as tab
+        spaceBehavesLikeTab: true,
         handlers: {
             enter: function () {
-                document.getElementById('submitBtn').click(); // Submit when Enter is pressed
+                document.getElementById('submitBtn').click();
             }
         }
     });
 
     // Function to insert symbols into the MathQuill input field
     function insertSymbol(symbol) {
-        mathField.write(symbol); // Writes the symbol to the MathQuill field
+        mathField.write(symbol);
     }
 
     // Function to insert square root symbol
     function insertSquareRoot() {
-        mathField.cmd('sqrt'); // Inserts square root command
+        mathField.cmd('sqrt');
+    }
+
+    function insertLimit() {
+        const limitExpression = `\\lim_{a \\to b}`;
+        mathField.write(limitExpression);
     }
 
     // Event listener for the submit button
-    document.getElementById('submitBtn').addEventListener('click', function () {
-        // Get references to UI elements
+    document.getElementById('submitBtn').addEventListener('click', function () { // Get references to UI elements
         const spinner = document.querySelector('.spinner'); // Spinner for loading indication
-        const videoContainer = document.querySelector('.video-container'); // Container for the video
-        const videoPlayer = document.getElementById('videoPlayer'); // Video player element
-        const videoSource = document.getElementById('videoSource'); // Video source element
+        const videoContainer = document.querySelector('.video-container');
+        const videoPlayer = document.getElementById('videoPlayer');
+        const videoSource = document.getElementById('videoSource');
+        spinner.style.display = 'block';
+        videoContainer.style.display = 'none';
+        const equation = mathField.latex();
 
-        // Show the spinner while processing
-        spinner.style.display = 'block'; // Display spinner
-        videoContainer.style.display = 'none'; // Hide video container initially
-
-        // Optional: Extract equation entered by the user in LaTeX format
-        const equation = mathField.latex(); // Extract LaTeX string from MathQuill field (if needed)
-
-        // Set the video source and show the video with a 6-second delay
         setTimeout(() => {
-            videoSource.src = "https://manors-videos-bucket.s3.us-east-2.amazonaws.com/c9dcd504-9404-11ef-9c17-c6ac684d68cbvideo.mp4"; // Set the video source
-            videoPlayer.load(); // Load the new video source into the player
-            videoContainer.style.display = 'block'; // Show the video container
-            spinner.style.display = 'none'; // Hide the spinner
+            videoSource.src = "https://manors-videos-bucket.s3.us-east-2.amazonaws.com/c9dcd504-9404-11ef-9c17-c6ac684d68cbvideo.mp4";
+            videoPlayer.load();
+            videoContainer.style.display = 'block';
+            spinner.style.display = 'none';
         }, 1000); // 6000ms = 6 seconds
     });
 </script>

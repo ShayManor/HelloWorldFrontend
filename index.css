@@ -1,0 +1,194 @@
+.navbar-brand {
+    background: linear-gradient(to right, #f86c7a, #7cdbfa);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent; /* Make text color transparent */
+    font-size: 3vw; /* Adjust the size as needed */
+    font-weight: bold; /* Optional: make it bold */
+    margin-right: 5px;
+}
+
+.navbar {
+    font-size: 1.5vw; /* Adjust the size as needed */
+    font-weight: bold; /* Optional: make it bold */
+    margin: 0px;
+}
+
+.navbar-nav .nav-item {
+    margin-right: 0px; /* Adjust the space between items */
+}
+
+.navbar-nav .nav-item:last-child {
+    margin-right: 0; /* Remove margin for the last item */
+}
+
+/* Styling for the body, including a gradient background and centering content */
+body {
+    background: linear-gradient(to right, #f86c7a, #7cdbfa);
+    min-height: 120vh; /* Ensures body height is sufficient for content */
+    display: flex;
+    justify-content: center; /* Centers content horizontally */
+    align-items: center; /* Centers content vertically */
+    font-family: 'Nunito', sans-serif;
+    color: #e0e0e0; /* Text color */
+    margin: 0; /* Remove default margin */
+    height: 100vh; /* Full viewport height */
+    overflow-y: auto; /* Enables vertical scrolling if necessary */
+}
+
+/* Container for the main content with background, padding, and shadow */
+.container {
+    max-width: 70vw; /* Maximum width for the container */
+    background: rgba(25, 25, 25, 0.9); /* Semi-transparent background */
+    border-radius: 15px; /* Rounded corners */
+    padding: 30px; /* Padding around content */
+    min-height: 80vh; /* Minimum height for the container */
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.8); /* Shadow for depth effect */
+    text-align: center; /* Center-aligns text within the container */
+    background-image: url('images/mathimages2.jpg'); /* Background image */
+    background-size: cover; /* Ensure the image covers the entire container */
+    background-position: center; /* Center the image */
+    color: white; /* Adjust text color for better readability */
+}
+
+/* Styling for the heading */
+h3 {
+    font-weight: 620; /* Semi-bold text */
+    color: #ffffff; /* White text color */
+    margin-bottom: 3.2vw; /* Space below the heading */
+    text-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Shadow for text effect */
+    box-shadow: 0 10px 30px rgb(0, 0, 0); /* Shadow for the heading */
+    background: linear-gradient(to right, #f86c7a, #7cdbfa); /* Gradient background */
+    padding: 2.5vh; /* Padding around the text */
+    border-radius: 10px; /* Rounded corners */
+    max-width: 60vw; /* Maximum width of the heading */
+    margin-top: 15vh; /* Space above the heading */
+    margin-left: auto; /* Centers the heading horizontally */
+    margin-right: auto; /* Centers the heading horizontally */
+    font-size: 3.7vw; /* Increase the font size (adjust as needed) */
+}
+
+
+/* Container for the MathQuill input field */
+.math-container {
+    border: 1px solid #3b8dbf; /* Border color */
+    border-radius: 10px; /* Rounded corners */
+    padding: 1.5vw; /* Padding inside the container */
+    min-height: 6vw; /* Minimum height for the container */
+    min-width: 40vw; /* Minimum width for the container */
+    margin-bottom: 1.25vw; /* Space below the math container */
+    cursor: text; /* Cursor indicates text input area */
+    background-color: rgba(150, 150, 150, 0.9); /* Background color */
+    transition: background-color 0.3s; /* Smooth transition for background color */
+    font-size: 1.5vw;
+}
+
+/* Change background color when the MathQuill container is focused */
+.math-container:focus {
+    background-color: #2a3b4d; /* Darker background on focus */
+}
+
+/* Styling for symbol buttons container */
+.symbol-buttons {
+    display: flex; /* Flexbox for layout */
+    flex-wrap: wrap; /* Allows buttons to wrap to the next line */
+    gap: 0.65vw; /* Space between buttons */
+    justify-content: center; /* Center-aligns buttons */
+    margin-bottom: 0.9vw; /* Space below symbol buttons */
+}
+
+.symbol-buttons button {
+    font-size: 1.35vw; /* Increase the font size (adjust as needed) */
+    padding: 1vw 1.7vw; /* Adjust padding for better appearance */
+}
+
+
+/* Container for each category of symbols */
+.category {
+    position: relative; /* Allows positioning of the symbols dropdown */
+    display: inline-block; /* Keeps each category inline */
+}
+
+/* Hidden symbols dropdown that appears on hover */
+.symbols {
+    display: none; /* Initially hidden */
+    position: absolute; /* Position relative to category */
+    background: rgba(25, 25, 25, 0.9); /* Background color */
+    border-radius: 8px; /* Rounded corners */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.7); /* Shadow effect */
+    padding: 1vh; /* Padding inside the dropdown */
+    z-index: 1; /* Ensures dropdown appears above other elements */
+}
+
+/* Show symbols dropdown on hover */
+.category:hover .symbols {
+    display: block; /* Display the symbols on hover */
+}
+
+/* Styling for individual symbol buttons */
+.symbols button {
+    font-size: 1.35vw; /* Font size for buttons */
+    border-radius: 25px; /* Rounded corners */
+    border: none; /* No border */
+    padding: 1.25vh 1.25vw; /* Padding around button text */
+    background-color: #3b8dbf; /* Button background color */
+    color: white; /* Button text color */
+    margin: 0.25vw 0; /* Space above and below buttons */
+    transition: all 0.3s ease; /* Smooth transition for hover effects */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.5); /* Shadow effect */
+}
+
+/* Change background and scale button on hover */
+.symbols button:hover {
+    background-color: #27a3bb; /* Change background color on hover */
+    transform: scale(1.05); /* Slightly enlarge button */
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5); /* Shadow effect on hover */
+}
+
+/* Styling for the submit button */
+#submitBtn {
+    position: relative; /* Allows for positioning effects */
+    overflow: hidden; /* Hides overflow content */
+    transition: background-color 0.3s, color 0.3s; /* Smooth transition for hover effects */
+    border-radius: 25px; /* Rounded corners */
+    padding: 1.55vh 1.75vw; /* Padding around button text */
+    font-size: 2.75vw; /* Font size */
+    background: linear-gradient(to right, #f86c7a, #7cdbfa); /* Gradient background */
+    color: white; /* Text color */
+    border: none; /* No border */
+    margin-top: 8px; /* Space above the button */
+    cursor: pointer; /* Change cursor to pointer on hover */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3); /* Shadow for depth */
+}
+
+/* Change background and scale submit button on hover */
+#submitBtn:hover {
+    background-color: #27a3bb; /* Change background color on hover */
+    transform: scale(1.05); /* Slightly enlarge button */
+}
+
+/* Spinner styling for loading indication */
+.spinner {
+    display: none; /* Hidden by default */
+}
+
+/* Container for video player, hidden by default */
+.video-container {
+    display: none; /* Initially hidden */
+    margin-top: 1.25vw; /* Space above the video container */
+}
+
+/* Video player styling */
+#videoPlayer {
+    border-radius: 0.75vw; /* Rounded corners for the video player */
+    overflow: hidden; /* Hides overflow content */
+    box-shadow: 0 0.35vw 1.25vw rgba(0, 0, 0, 0.5); /* Shadow effect */
+}
+
+/* Background image for the container */
+.container {
+    background-image: url('images/mathimages2.jpg'); /* Background image */
+    background-size: cover; /* Ensure the image covers the entire container */
+    background-position: center; /* Center the image */
+    padding: 1.25vw; /* Padding around the content */
+    color: white; /* Adjust text color for better readability */
+}
