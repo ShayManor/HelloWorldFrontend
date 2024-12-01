@@ -192,3 +192,26 @@ h3 {
     padding: 1.25vw; /* Padding around the content */
     color: white; /* Adjust text color for better readability */
 }
+#userDropdown .dropdown-menu {
+    background-color: #464c55; /* Dropdown background color */
+    color: white; /* Text color */
+}
+
+/* Change the background color of the dropdown items */
+#userDropdown .dropdown-item,
+#userDropdown .dropdown-item-text {
+    background-color: #464c55; /* Item background color */
+    color: white; /* Text color */
+}
+
+/* Change the background color on hover */
+#userDropdown .dropdown-item:hover,
+#userDropdown .dropdown-item-text:hover {
+    background-color: #495057; /* Hover background color */
+    color: white; /* Ensure text remains white on hover */
+}
+
+/* Optional: Style the divider */
+#userDropdown .dropdown-divider {
+    border-color: #33353c; /* Divider color */
+}

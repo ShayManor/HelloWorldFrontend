@@ -54,7 +54,7 @@
             </ul>
             <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
                 <!-- Dropdown Menu for Logged-In Users -->
-                <div class="dropdown d-flex align-items-center" id="userDropdown" style="display: none;">
+                <div class="dropdown d-flex align-items-center" id="userDropdown">
                     <button class="dropbtn btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
                         User Menu
                     </button>
@@ -211,6 +211,7 @@
             currentUser = user;
             console.log('User logged in:', user.email);
             // Update UI to reflect login status
+            document.getElementById('dropdownMenuButton').style.display = 'block';
             document.getElementById('loginBtn').style.display = 'none';
             document.getElementById('logoutBtn').style.display = 'block';
             document.getElementById('userEmailDisplay').textContent = `Logged in as ${user.email}`;
@@ -239,9 +240,10 @@
             console.log('User logged out');
             // Update UI to reflect logout status
             document.getElementById('loginBtn').style.display = 'block';
+            document.getElementById('dropdownMenuButton').style.display = 'none';
             document.getElementById('logoutBtn').style.display = 'none';
             document.getElementById('userEmailDisplay').textContent = '';
-            document.getElementById('remainingRequests').textContent = 'abc';
+            document.getElementById('remainingRequests').textContent = '';
         }
     });
 
